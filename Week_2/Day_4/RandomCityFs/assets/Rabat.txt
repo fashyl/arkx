@@ -1,0 +1,7 @@
+City: Rabat
+Temperature: 15.1 °C
+Latitude: 34.0209
+Longitude: -6.8416
+Time(here): 2024-02-09T06:15
+Wind Speed: 8.4 km/h
+Wind Direction: 170

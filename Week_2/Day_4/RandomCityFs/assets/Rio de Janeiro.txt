@@ -1,0 +1,7 @@
+City: Rio de Janeiro
+Temperature: 25 °C
+Latitude: -22.9068
+Longitude: -43.1729
+Time(here): 2024-02-09T05:45
+Wind Speed: 1.5 km/h
+Wind Direction: 76
