@@ -1,0 +1,7 @@
+City: Sydney
+Temperature: 22.5 °C
+Latitude: -33.8651
+Longitude: 151.2099
+Time(here): 2024-02-09T08:45
+Wind Speed: 16.7 km/h
+Wind Direction: 173
