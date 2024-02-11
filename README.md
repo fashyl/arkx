@@ -9,9 +9,6 @@ Welcome to my coding bootcamp journey repository! 🚀 In this space, I'm docume
 ## 🚀 Progress
 
 ### Week 1: PrepCamp
-- [X] learn some JavaScript Fundamentals.
-- [X] Get Accepted. الحمد لله
-
 ### Week 2: Deep Dive into JS
 ### Week 3: NodeJS, Events, FS and the NodeJs HTTP Server
 
