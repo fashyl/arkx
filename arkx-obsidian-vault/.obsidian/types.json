@@ -1,0 +1,18 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "DateCreated": "date",
+    "resource": "multitext",
+    "DueDate": "date",
+    "state": "checkbox",
+    "finished": "checkbox",
+    "solved": "checkbox",
+    "week": "text",
+    "id": "number",
+    "done": "checkbox",
+    "links": "multitext",
+    "urls": "multitext"
+  }
+}

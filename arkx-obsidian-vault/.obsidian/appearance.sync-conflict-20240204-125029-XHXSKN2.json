@@ -1,0 +1,10 @@
+{
+  "accentColor": "#ff4200",
+  "cssTheme": "AnuPpuccin",
+  "theme": "obsidian",
+  "enabledCssSnippets": [
+    "indentation",
+    "extended-colorschemes",
+    "hide-props"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "promptDelete": false,
+  "propertiesInDocument": "source",
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "current",
+  "showUnsupportedFiles": true,
+  "attachmentFolderPath": "Attachments",
+  "userIgnoreFilters": [
+    "Templates/",
+    "Attachments/"
+  ]
+}

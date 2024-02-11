@@ -1,0 +1,15 @@
+/* ----------------- */
+/* List guides CSS */
+.cm-hmd-list-indent > .cm-tab {
+  border-left: 1px solid rgba(33, 33, 33, 0.8); // The color could be var(--text-faint) or similar
+  margin-left: 3px;
+}
+
+.cm-s-obsidian pre.HyperMD-list-line {
+  padding-top: 0 !important;
+  min-height: 1.8em;
+}
+
+.cm-s-obsidian pre.HyperMD-list-line > span * {
+  padding-top: 0.61em !important;
+}

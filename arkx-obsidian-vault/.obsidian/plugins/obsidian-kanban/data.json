@@ -1,0 +1,6 @@
+{
+  "show-checkboxes": true,
+  "date-picker-week-start": 1,
+  "hide-tags-display": false,
+  "new-note-template": "Templates/Concept Template.md"
+}
