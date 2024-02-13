@@ -1,17 +1,5 @@
 const fs = require("fs");
 
-function postData(name, temperature, lat, lng, time, windspeed, winddirection) {
-  console.log(
-    `City: ${name}
-Temperature: ${temperature} °C
-Latitude: ${lat}
-Longitude: ${lng}
-Time(here): ${time}
-Wind Speed: ${windspeed} km/h
-Wind Direction: ${winddirection}`
-  );
-}
-
 function readFile(cityname) {
   const pattern = new RegExp(`${cityname}`, "i");
   return new Promise((resolve, reject) => {
@@ -61,5 +49,4 @@ function readFile(cityname) {
 
 module.exports = {
   readFile,
-  postData,
 };

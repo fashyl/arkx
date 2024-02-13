@@ -20,9 +20,16 @@ const server = http.createServer((req, res) => {
     // Extracting the city name from the query parameter
     const { city } = query; //
     if (city) {
-      res.writeHead(200, { "Content-Type": "text/plain" });
       const { query } = url.parse(req.url, true);
-      res.end(getCityTemperature(query.city));
+      getCityTemperature(query.city)
+        .then(weatherData => {
+          res.writeHead(200, { "Content-Type": "text/plain" });
+          res.end(postData(weatherData));
+        })
+        .catch(err => {
+          res.writeHead(500, { "Content-Type": "text/plain" });
+          res.end("Error fetching weather data");
+        });
       
     } else {
       res.writeHead(400, { "Content-Type": "text/plain" });
@@ -33,6 +40,16 @@ const server = http.createServer((req, res) => {
     res.end("404 Not Found");
   }
 });
+
+function postData(cityObject) {
+  return `City: ${cityObject.name}
+Temperature: ${cityObject.temperature} °C
+Latitude: ${cityObject.lat}
+Longitude: ${cityObject.lng}
+Time(here): ${cityObject.time}
+Wind Speed: ${cityObject.windspeed} km/h
+Wind Direction: ${cityObject.winddirection}`;
+}
 
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
