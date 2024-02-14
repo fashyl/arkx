@@ -1,0 +1,73 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "zakerr_",
+      "email": "zakerr_@gmail.com",
+      "role": "reader",
+      "liked_blogs": [
+        "1"
+      ],
+      "disliked_blogs": [
+        "2"
+      ],
+      "comments": [
+        {
+          "blog_id": "1",
+          "comment_id": "1",
+          "text": "Good blog!",
+          "timestamp": "2024-02-18T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "username": "zakerr_",
+      "email": "zakerr_@gmail.com",
+      "role": "reader",
+      "liked_blogs": [
+        "1"
+      ],
+      "disliked_blogs": [
+        "2"
+      ],
+      "comments": [
+        {
+          "blog_id": "1",
+          "comment_id": "1",
+          "text": "Good blog!",
+          "timestamp": "2024-02-18T12:00:00Z"
+        }
+      ]
+    }
+  ],
+  "blogs": [
+    {
+      "id": "7984",
+      "blogId": "zc81",
+      "title": "Title of Blog 1",
+      "author": "dpnt",
+      "content": "Content of Blog 1",
+      "likes": 10,
+      "dislikes": 2,
+      "comments": [
+        {
+          "comment_Id": "1",
+          "user_Id": "1",
+          "text": "Great blog!",
+          "timestamp": "2024-02-14T12:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "a67b",
+      "blogId": "df6u",
+      "title": "Title of Blog 2",
+      "author": "dpnt",
+      "content": "Content of Blog 2",
+      "likes": 5,
+      "dislikes": 1,
+      "comments": []
+    }
+  ]
+}
