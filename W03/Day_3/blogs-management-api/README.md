@@ -51,7 +51,7 @@ $ npm run fakeapi
 ```
 
 ## Postman
-![Postman Testing](https://imgur.com/a/TCguC0Z)
+![Postman Testing](./postman-screenshot.png)
 Haven't figured out how to integrate Github with Postman.. but will soon.
 
 ## Authentication
