@@ -22,8 +22,8 @@
     },
     {
       "id": "2",
-      "username": "zakerr_",
-      "email": "zakerr_@gmail.com",
+      "username": "fashyl",
+      "email": "fashyl@gmail.com",
       "role": "reader",
       "liked_blogs": [
         "1"
@@ -39,12 +39,21 @@
           "timestamp": "2024-02-18T12:00:00Z"
         }
       ]
+    },
+    {
+      "id": "3",
+      "username": "dpnt",
+      "email": "dpnt@example.com",
+      "role": "blogger",
+      "created_blogs": [
+        "zc81",
+        "df6u"
+      ]
     }
   ],
   "blogs": [
     {
       "id": "7984",
-      "blogId": "zc81",
       "title": "Title of Blog 1",
       "author": "dpnt",
       "content": "Content of Blog 1",
@@ -61,7 +70,6 @@
     },
     {
       "id": "a67b",
-      "blogId": "df6u",
       "title": "Title of Blog 2",
       "author": "dpnt",
       "content": "Content of Blog 2",
