@@ -7,19 +7,17 @@
 // Ingredients that are not present in the objects, can be considered as 0.
 
 function cakes(recipe, available) {
-    return 
+    return Object.entries(recipe).filter(re => {
+      Object.entries(available).some(av => re[0] == av[0] )
+    })
   }
 
 // Sample Test
 
-    let recipe = {flour: 500, sugar: 200, eggs: 1};
-    let available = {flour: 1200, sugar: 1200, eggs: 5, milk: 200};
-    console.log('recipe : ', recipe);
-    console.log('available : ', available);
-    cakes(recipe, available)
-    
-    recipe = {apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100};
-    available = {sugar: 500, flour: 2000, milk: 2000};
-    console.log('recipe : ', recipe);
-    console.log('available : ', available);
-    cakes(recipe, available)
+  let recipe = {flour: 500, sugar: 200, eggs: 1};
+  let available = {flour: 1200, sugar: 1200, eggs: 5, milk: 200};
+  console.log(cakes(recipe, available))
+  
+  recipe = {apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100};
+  available = {sugar: 500, flour: 2000, milk: 2000};
+  console.log(cakes(recipe, available))
