@@ -1,5 +1,6 @@
 const express = require('express');
-const { viewToDos, viewToDo, createToDo } = require('../controllers/to-dos');
+const { viewToDos, viewToDo, createToDo, editToDo, deleteToDo } = require('../controllers/to-dos');
+const { authenticator } = require('../middlewares/authenticator');
 const router = express.Router();
 
 router.route('/')
@@ -8,5 +9,7 @@ router.route('/')
 
 router.route('/:id')
 .get(viewToDo)
+.patch(authenticator, editToDo)
+.delete(authenticator,deleteToDo)
 
 module.exports = router;

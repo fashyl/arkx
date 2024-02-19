@@ -17,10 +17,10 @@ exports.createToDoApi = (body) => {
   return instance.post(`/`, body);
 };
 
-// exports.updateBlogApi = (id, body) => {
-//   return apii.put(`/todos/${id}`, body);
-// };
+exports.updateToDoApi = (id, body) => {
+  return instance.patch(`/${id}`, body);
+};
 
-// exports.deleteBlogApi = (id) => {
-//   return apii.delete(`/todos/${id}`, id);
-// };
+exports.deleteToDoApi = (id) => {
+  return instance.delete(`/${id}`, id);
+};
