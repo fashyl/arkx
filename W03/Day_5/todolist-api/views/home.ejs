@@ -1,91 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add New Task</title>
-    <style>
-        body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-}
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.todo-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-}
-
-.buttons {
-  display: flex;
-}
-
-button {
-  padding: 5px 10px;
-  margin-left: 5px;
-  cursor: pointer;
-}
-
-button.update {
-  background-color: #ffc107;
-  border: none;
-}
-
-button.delete {
-  background-color: #dc3545;
-  border: none;
-  color: #fff;
-}
-
-button.add {
-  margin: 20px auto;
-  display: block;
-  padding: 10px 20px;
-  font-size: 16px;
-}
-
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>To Do List</h1>
-      <ul id="todo-list">
-        <% todos.forEach( todo => {  %>
-          <li>
-            <div class="todo-item">
-              <span class="todo-title"><%= todo.title%></span>
-              <div class="buttons">
-                <button class="update">Update</button>
-                <button class="delete">Delete</button>
-              </div>
-            </div>
-          </li>
-        <% }) %>
-      </ul>
-      <a href="./form.ejs"><button class="add">Add New Item</button></a>
-    </div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Todos</h1>
+    <ul>
+        <% for (let i = 0; i < todos.length; i++) { %>
+            <h2><%= todos[i].title %></h2>
+            <h3><%= todos[i].id %></h3>
+            <p><%= todos[i].description %></p>
+            <li><%= todos[i].completed %></li>
+            <a href="/view/<%= todos[i].id %>">view</a>
+            <a href="/update/<%= todos[i].id %>">update</a>
+            <a href="/delete/<%= todos[i].id %>">delete</a>
+            <hr>
+        <% } %>
+</body>
 </html>
-

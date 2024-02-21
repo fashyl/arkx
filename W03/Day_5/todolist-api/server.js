@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.set('view engine','ejs');
 
-app.use('/todos', logger, router);
+app.use('/', logger, router);
 
 app.listen(port, () => {
     console.log(`Server listening at http://${host}:${port}..`);
