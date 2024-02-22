@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My | Books API</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .books {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+        .book {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            position: relative;
+        }
+        .book img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .actions button {
+            margin-left: 5px;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .h2 {
+            text-decoration: none; /* Remove default underline for anchor tag */
+            color: inherit; /* Inherit color from parent */
+        }
+        .h2:hover {
+            text-decoration: underline; /* Add underline on hover */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+        .my-lists-link {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../partials/navbarLoggedIn.ejs') %>
+    <div class="container">
+        <h1>My Books</h1>
+        <div class="books">
+            <% hisList.forEach(book => { %>
+                <div class="book">
+                    <a href="/<%=book.id%>" class="h2"><h2><%= book.title %></h2></a>
+                    <p><strong>Author:</strong> <%= book.author %></p>
+                    <p><strong>Publication Year:</strong> <%= book.publication_year %></p>
+                    <p><strong>Genre:</strong> <%= `${book.genre[0]}` %></p>
+                    <p><%= book.description %></p>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>

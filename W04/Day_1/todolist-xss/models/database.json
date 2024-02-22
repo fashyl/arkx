@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "shyl",
+      "email": "shyl@example.com",
+      "password": "hashed_password_here",
+      "created_at": "2024-02-18T12:00:00Z",
+      "updated_at": "2024-02-18T12:00:00Z"
+    }
+  ],
+  "todos": [
+    {
+      "id": "1",
+      "title": "EJS Challenge : ToDo List",
+      "description": "Finish before 00:00",
+      "due_date": "2024-02-28T23:59:59Z",
+      "completed": "true",
+      "user_id": 1,
+      "created_at": "2024-02-18T12:00:00Z",
+      "updated_at": "2024-02-18T12:00:00Z",
+      "_method": "PUT"
+    },
+    {
+      "id": "4",
+      "title": "CHOOUUUFFFOUUUNI",
+      "description": "Finish bdsfa fd:00",
+      "due_date": "2024-02-28T23:59:59Z",
+      "completed": false,
+      "user_id": 1,
+      "created_at": "2024-02-18T16:00:00Z",
+      "updated_at": "2024-02-18T12:00:00Z"
+    },
+    {
+      "user_id": 1,
+      "completed": true,
+      "id": "bbe3",
+      "title": "l'API",
+      "description": "finish CRUD operations",
+      "due_date": "2024-02-28T23:59:59Z",
+      "created_at": "2024-02-18T16:00:00Z",
+      "updated_at": "2024-02-18T17:28:00Z"
+    }
+  ]
+}
