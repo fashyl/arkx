@@ -1,0 +1,51 @@
+{
+  "users": [
+    {
+      "id": "9193",
+      "username": "shyl",
+      "email": "shyl@ex.co",
+      "password": "$2b$10$wV5syJS/qSWyvqHeO7Ef0.6Oq5n8hAAOsRjpkyxtH6UduagrGPTyK",
+      "uuid": "a6d3e8b3-43b1-4701-a2c4-8c32f4942f8d"
+    },
+    {
+      "id": "db96",
+      "username": "snfou7i",
+      "email": "snfou7i@outlook.com",
+      "password": "$2b$10$rSI.X006Vx34zvGkF3poreWhzTuIqKMJambbQxM3QuJydFvZcnZ1W",
+      "uuid": "1d6d5086-c72d-4de9-88ff-7eabda2d5827"
+    },
+    {
+      "id": "a45f",
+      "username": "dpnt",
+      "email": "dpnt@1337.ma",
+      "password": "$2b$10$cbjxiRrVmmpT.XUvT7VOye.lgZDXLEodOIOvCM8EeqMApMheErqBS",
+      "uuid": "15607715-dfbd-4189-a610-955b43ba4329"
+    }
+  ],
+  "books": [
+    {
+      "id": "c124",
+      "title": "Rich Dad Poor Dad",
+      "author": "Robert T. Kiyosaki",
+      "publication_year": "2017",
+      "description": "Robert's story of growing up with two dads, his real father and the father of his best friend, his rich dad.",
+      "genre": [
+        "Business"
+      ],
+      "authorId": "a6d3e8b3-43b1-4701-a2c4-8c32f4942f8d",
+      "cover_image": "/cover/rich-dad-poor-dad-cover.webp"
+    },
+    {
+      "id": "d50d",
+      "title": "The Alchemist",
+      "authorId": "1d6d5086-c72d-4de9-88ff-7eabda2d5827",
+      "author": "Paulo Coelho",
+      "publication_year": "2013",
+      "description": "Every few decades a book is published that changes the lives of its readers forever. This is such a book - a beautiful parable about learning to listen to your heart, read the omens strewn along life's path and, above all, follow your dreams.",
+      "genre": [
+        "Drama, Quest, Adventure fiction"
+      ],
+      "cover_image": "/cover/the-alchemist-cover.webp"
+    }
+  ]
+}

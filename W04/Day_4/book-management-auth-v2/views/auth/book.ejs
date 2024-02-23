@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= book.title %> | Books API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .book {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .book img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .actions {
+            margin-top: 10px;
+        }
+        .actions button {
+            margin-left: 5px;
+        }
+        
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #d5c4a1;
+            color: white;
+        }
+
+        .navbar-right {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/add">Add Book</a>
+        <div class="navbar-right">
+            <a href="/mylist"><%=username%></a>
+            <a href="/logout">Logout</a>
+          </div>
+    </div>
+    <div class="container">
+        <div class="book">
+            <img src="<%=book.cover_image%>" alt="Book Cover">
+            <h2><%= book.title %></h2>
+            <p><strong>Author:</strong> <%= book.author %></p>
+            <p><strong>Publication Year:</strong> <%= book.publication_year %></p>
+            <p><strong>Genre:</strong> <%= `${book.genre[0]}`  %></p>
+            <p><strong>Description:</strong></p>
+            <p><%= book.description %></p>
+            <div class="actions">
+                <a href="/edit/<%=book.id%>">
+                    <button>Edit</button>
+                </a>
+                <a href="/delete/<%=book.id%>">
+                    <button>Delete</button>
+                </a>
+            </div>
+        </div>    
+    </div>
+</body>
+</html>
