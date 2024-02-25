@@ -3,6 +3,7 @@ const fs = require('fs')
 
 // Server creation and config
 const app = express();
+app.use(express.static('./static'));
 app.use(express.json); // to parse json
 app.use(express.urlencoded({extended:true})); // to parse urlencoded
 const port = 3030;
