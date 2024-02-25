@@ -7,7 +7,7 @@
 ### Week 1: PrepCamp
 ### Week 2: Deep Dive into **JS**
 ### Week 3: **NodeJS**, Events, FS and the HTTP Modules.
-### Week 4: **Express.js** Web Framework
+### Week 4, 5: **Express.js** Web Framework
 ..work in progress
 
 ## Contact
