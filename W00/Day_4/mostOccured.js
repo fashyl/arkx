@@ -1,22 +1,19 @@
-const { Sort } = require("../Day_3/BubbleSort")
-let Array = {
-    _array: [4, 2, 2, 7, 2],
-    _mostOccured: 2,
-    
-    get result() {
-        return `The most occured number in ${this._array} is ${this._mostOccured}`;
-    },
-    set testArray(array) {
-        this._array = array;
-        let ascArray = Sort.array;
-        let count = 0;
-        for (let i = 0; i < ascArray.length - 1; i++) {
-            if (ascArray[i] = ascArray[i+1]) {
-                count++;
-                ascArray.splice(i+1,1);
-            }
+function mostOccured(array) {
+    let result = 0;
+    for (let i = 0; i < array.length; i++) {
+        let count = 1
+        for( let j = i + 1; j < array.length; j++) {
+            // console.log(`comparing ${array[i]} to ${array[j]}`)
+            if ( array[i] == array[j]) count++
         }
+        if ( count > result && count > 1) result = count;
     }
-
- // 1, 1, 1, 2, 2, 3, 3, 3, 3
+    return result;
 }
+
+
+console.log(mostOccured([3, 3, 3, 1, 1, 1, 2, 2, 2]));
+console.log(mostOccured([1, 2, 3, 4, 1, 2, 2, 2, 5]));
+console.log(mostOccured([5, 5, 5, 5, 5, 5, 5]));
+console.log(mostOccured([1, 2, 3, 4, 5, 6]));
+console.log(mostOccured([-1, -2, -3, -4, -1, -2, -2, -2, -5]));
