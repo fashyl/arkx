@@ -100,14 +100,6 @@
         <div class="books">
             <% hisList.forEach(book => { %>
                 <div class="book">
-                    <div class="actions">
-                        <a href="/edit/<%=book.id%>">
-                            <button>Edit</button>
-                        </a>
-                        <a href="/delete/<%=book.id%>">
-                            <button>Delete</button>
-                        </a>
-                    </div>
                     <img src="<%=book.cover_image%>" alt="Book Cover">
                     <a href="/<%=book.id%>" class="h2"><h2><%= book.title %></h2></a>
                     <p><strong>Author:</strong> <%= book.author %></p>

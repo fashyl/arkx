@@ -6,63 +6,98 @@ const {
   viewBookApi,
   updateBookApi,
   deleteBookApi,
+  addReviewApi,
 } = require("../api/books");
-const { User } = require("../helpers/userQuery");
 
 //---Rendering (Front)---//
 // Home
 exports.viewBooks = async (req, res, next) => {
   try {
     const books = await viewBooksApi();
-    res.status(200).render("../views/auth/home.ejs", { books: books.data, username : req.user.username });
+    res
+      .status(200)
+      .render("../views/auth/home.ejs", {
+        books: books.data,
+        username: req.user.username,
+      });
   } catch (error) {
-    res.status(500).send("Problem on server's end.. \nERROR | " + error.message);
+    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
+    res.status(500).render('../views/no-auth/500.ejs');
   }
 };
 // Single Book
-exports.viewBook= async (req, res, next) => {
+exports.viewBook = async (req, res, next) => {
   try {
     const book = await viewBookApi(req.params.id);
-    res.render("../views/auth/book.ejs", { book: book.data, username : req.user.username});
+    res.render("../views/auth/book.ejs", {
+      book: book.data,
+      username: req.user.username,
+    });
   } catch (error) {
-    res.status(500).send("Problem on server's end.. \nERROR | " + error);
+    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
+    res.status(500).render('../views/no-auth/500.ejs');
   }
 };
 // Editing an existing book
 exports.renderEdit = async (req, res) => {
   try {
     const book = await viewBookApi(req.params.id);
-    res.render("../views/auth/edit.ejs", { book: book.data, username : req.user.username });
+    res.render("../views/auth/edit.ejs", {
+      book: book.data,
+      username: req.user.username,
+    });
   } catch (error) {
-    res.status(500).send("Problem on server's end.. \nERROR | " + error.message);
+    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
+    res.status(500).render('../views/no-auth/500.ejs');
   }
 };
 // Creating / Adding a book
 exports.renderForm = (req, res) => {
-  res.render("../views/auth/form.ejs", { username : req.user.username });
+  res.render("../views/auth/form.ejs", { username: req.user.username });
+};
+
+exports.render404 = (req, res) => {
+  res.render("../views/no-auth/404.ejs");
 };
 
 //---(Back)---//
 // Posting
 exports.createBook = async (req, res, next) => {
   try {
-    const { title, author, publication_year, genre, description } =
-      req.body;
-    const result = await createBookApi({ title, author, publication_year, genre, description, authorId: req.user.uuid, cover_image: req.file.filename}); // TOKEN PAYLOAD
+    const { title, author, publication_year, genre, description } = req.body;
+    const result = await createBookApi({
+      title,
+      author,
+      publication_year,
+      genre,
+      description,
+      authorId: req.user.uuid,
+      cover_image: req.file.filename,
+      reviews: [],
+    }); // TOKEN PAYLOAD
     res.status(302).redirect("/mylist");
   } catch (error) {
-    console.log(error);
-    res.status(500).send("Problem on server's end.. \nERROR | " + error);
+    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
+    res.status(500).render('../views/no-auth/500.ejs');
   }
 };
 // Patching
 exports.editBook = async (req, res, next) => {
   try {
     const { title, author, publication_year, genre, description } = req.body;
-    await updateBookApi(req.params.id, { title, author, publication_year, genre, description, authorId: req.user.uuid, cover_image: req.file.filename}); // TOKEN PAYLOAD
+    await updateBookApi(req.params.id, {
+      title,
+      author,
+      publication_year,
+      genre,
+      description,
+      authorId: req.user.uuid,
+      cover_image: req.file.filename,
+    }); // TOKEN PAYLOAD
     res.redirect("/mylist", 302);
   } catch (error) {
-    res.status(500).send("Problem on server's end.. \nERROR | " + error);
+    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
+    res.status(500).render('../views/no-auth/500.ejs');
   }
 };
 // Deleting
@@ -71,6 +106,20 @@ exports.deleteBook = async (req, res, next) => {
     await deleteBookApi(req.params.id);
     res.redirect("/mylist", 301);
   } catch (error) {
-    res.status(500).send("Problem on server's end.. \nERROR | " + error);
+    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
+    res.status(500).render('../views/no-auth/500.ejs');
   }
 };
+
+// Adding a review
+exports.addReview = async (req, res, next) => {
+  try {
+    const { comment } = req.body;
+    const result = await addReviewApi(req.params.id, { user : req.user.username, comment });
+    res.redirect(`/${req.params.id}`, 301);
+  } catch (error) {
+    console.log(error);
+    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
+    res.status(500).render('../views/no-auth/500.ejs');
+  }
+}

@@ -42,3 +42,11 @@ exports.updateBookApi = (id ,body) => {
 exports.deleteBookApi = (id) => {
   return instance.delete(`/${id}`, id);
 };
+
+exports.addReviewApi = async (id, body) => {
+  const book = await this.viewBookApi(id)
+  const newReviews = {
+    reviews : [ ...book.data.reviews, body ]
+  }
+  return instance.patch(`/${id}`, newReviews);
+}

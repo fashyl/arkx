@@ -39,6 +39,10 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .error-message {
+            color: #d49007;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -52,6 +56,9 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
                 <input type="submit" value="Login">
+                <% if (error) { %>
+                    <p class="error-message"><%= error %></p>
+                <% } %>
             </form>
         </div>
     </div>

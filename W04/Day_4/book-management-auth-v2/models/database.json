@@ -15,11 +15,11 @@
       "uuid": "1d6d5086-c72d-4de9-88ff-7eabda2d5827"
     },
     {
-      "id": "a45f",
-      "username": "dpnt",
-      "email": "dpnt@1337.ma",
-      "password": "$2b$10$cbjxiRrVmmpT.XUvT7VOye.lgZDXLEodOIOvCM8EeqMApMheErqBS",
-      "uuid": "15607715-dfbd-4189-a610-955b43ba4329"
+      "id": "d9b1",
+      "username": "user4",
+      "email": "user4@gmail.com",
+      "password": "$2b$10$lw.qQ2h0VnZtLNCui4fbMusdHydaziebejIwHbLasb3OkSAvPbzD2",
+      "uuid": "4ae41f78-f25f-44c6-b9f2-02c48d55882c"
     }
   ],
   "books": [
@@ -33,7 +33,17 @@
         "Business"
       ],
       "authorId": "a6d3e8b3-43b1-4701-a2c4-8c32f4942f8d",
-      "cover_image": "/cover/rich-dad-poor-dad-cover.webp"
+      "cover_image": "/cover/rich-dad-poor-dad-cover.webp",
+      "reviews": [
+        {
+          "user": "shyl",
+          "comment": "Review.\r\n"
+        }
+      ],
+      "rating": {
+        "likes": 0,
+        "dislikes": 0
+      }
     },
     {
       "id": "d50d",
@@ -45,7 +55,17 @@
       "genre": [
         "Drama, Quest, Adventure fiction"
       ],
-      "cover_image": "/cover/the-alchemist-cover.webp"
+      "cover_image": "/cover/the-alchemist-cover.webp",
+      "reviews": [
+        {
+          "user": "shyl",
+          "comment": "I'm not sure that I can capture my utter disdain for this book in words, but I'll give it a shot. I read this book about three years ago and just had to re-read it for book club. It was a steaming pile of crap then and, guess what?, it's a steaming pile of crap now. The main reason I hate this book: it's trite inspirational literature dressed up as an adventure quest. You go into it thinking that it's going to be about a boy's quest for treasure. If you read the back, there are words like \"Pyramids,\" \"Gypsy,\" \"alchemist.\" Turns out, this is just The Purpose Driven Life dressed up with a little fable. It's Hallmark Hall of Fame territory set in an exotic locale. Which pisses me off to no end as I normally try to dodge that sort of thing, but here it is masquerading as the type of book I normally like. It's cliche, didactic, and poorly written. "
+        }
+      ],
+      "rating": {
+        "likes": 0,
+        "dislikes": 0
+      }
     }
   ]
 }

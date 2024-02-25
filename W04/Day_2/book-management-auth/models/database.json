@@ -72,12 +72,11 @@
     },
     {
       "id": "3",
-      "user_id": "32de",
+      "user_id": "5b58",
       "title": "Pride and Prejudice",
       "author": "Jane Austen",
-      "publication_year": 1813,
+      "publication_year": "1813",
       "genre": [
-        "Classic",
         "Romance"
       ],
       "description": "A classic novel exploring themes of love, marriage, and social norms.",

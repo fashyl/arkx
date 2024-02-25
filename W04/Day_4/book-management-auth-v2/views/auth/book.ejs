@@ -14,11 +14,15 @@
         .container {
             width: 80%;
             margin: 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
         .book {
             background-color: #fff;
             border-radius: 5px;
             padding: 20px;
+            width: 30%;
         }
         .book img {
             max-width: 100%;
@@ -26,11 +30,77 @@
             border-radius: 5px;
             margin-bottom: 10px;
         }
+        .book-details {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            width: 65%;
+        }
         .actions {
             margin-top: 10px;
         }
         .actions button {
             margin-left: 5px;
+        }
+        .review-section {
+            margin-top: 20px;
+        }
+        .review-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .review-form input[type="submit"] {
+            background-color: #d5c4a1;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .like-dislike-buttons {
+            margin-top: 20px;
+        }
+        .like-dislike-buttons button {
+            background-color: #689d6a;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .like-dislike-buttons button:hover {
+            background-color: #8ec07c;
+        }
+        .like-dislike-buttons button + button {
+            margin-left: 10px;
+        }
+        .like-dislike-buttons button.dislike {
+            background-color: #cc241d;
+        }
+        .review {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .review .user-icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background-color: #3c3836;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
         }
         
         .navbar {
@@ -73,6 +143,8 @@
     <div class="container">
         <div class="book">
             <img src="<%=book.cover_image%>" alt="Book Cover">
+        </div>
+        <div class="book-details">
             <h2><%= book.title %></h2>
             <p><strong>Author:</strong> <%= book.author %></p>
             <p><strong>Publication Year:</strong> <%= book.publication_year %></p>
@@ -86,6 +158,26 @@
                 <a href="/delete/<%=book.id%>">
                     <button>Delete</button>
                 </a>
+            </div>
+            <div class="review-section">
+                <h3>Reviews</h3>
+                <% book.reviews.forEach(review => { %>
+                    <div class="review">
+                        <div class="user-icon"><%= review.user.charAt(0).toUpperCase() %></div>
+                        <p><strong><%= review.user %>:</strong></p>
+                        <p><%= review.comment %></p>
+                    </div>
+                <% }); %>
+                <div class="review-form">
+                    <form action="/addReview/<%=book.id%>" method="post">
+                        <textarea name="comment" placeholder="Write your review here"></textarea>
+                        <input type="submit" value="Submit Review">
+                    </form>
+                </div>
+            </div>
+            <div class="like-dislike-buttons">
+                <button class="like">Like</button>
+                <button class="dislike">Dislike</button>
             </div>
         </div>    
     </div>

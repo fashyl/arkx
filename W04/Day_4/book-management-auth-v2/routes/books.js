@@ -1,6 +1,6 @@
 const express = require('express');
-const { viewBooks, viewBook, deleteBook, editBook, renderEdit, createBook, renderForm } = require('../controllers/books');
-const { isAuthenticated, isTheAuthor, avoidAuth } = require('../middlewares/authOps');
+const { viewBooks, viewBook, deleteBook, editBook, renderEdit, createBook, renderForm, render404, addReview } = require('../controllers/books');
+const { isAuthenticated, isTheAuthor } = require('../middlewares/authOps');
 const { sanitize } = require('../middlewares/sanitizer');
 const { validateBookEntries } = require('../middlewares/validator');
 const { logger } = require('../middlewares/utility');
@@ -16,5 +16,7 @@ router.get('/delete/:id', isAuthenticated, isTheAuthor, deleteBook)
 router.get('/edit/:id', isAuthenticated, isTheAuthor , renderEdit)
 router.post('/edit/:id', isAuthenticated, isTheAuthor, upload.single('cover_image') , editBook)
 router.post('/add', isAuthenticated, upload.single('cover_image'), createBook)
+router.post('/addReview/:id', isAuthenticated, addReview)
+router.get('*', render404);
 
 module.exports = router;
