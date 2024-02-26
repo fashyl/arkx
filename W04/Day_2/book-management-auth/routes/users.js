@@ -1,6 +1,6 @@
 const express = require('express');
 const { renderLogin, renderRegister, renderList, login, register } = require('../controllers/users');
-const { isAuthenticated, avoidAuth } = require('../middlewares/auth');
+const { isAuthenticated, avoidAuth } = require('../middlewares/authOps');
 const usersRouter = express.Router();
 
 // Authors End-Points

@@ -1,6 +1,6 @@
 const express = require('express');
 const { viewBooks, viewBook, deleteBook, editBook, renderEdit, createBook, renderForm } = require('../controllers/books');
-const { isAuthenticated, authView } = require('../middlewares/auth');
+const { isAuthenticated, authView } = require('../middlewares/authOps');
 const router = express.Router();
 
 // Books End-Points
