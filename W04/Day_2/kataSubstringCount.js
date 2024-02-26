@@ -10,7 +10,6 @@ function searchSubstr( fullText, searchText, allowOverlap = true ){
     if(!searchText) return 0
     // `match` returns an array whose contents depend on the presence or absence of the global (g) flag, or null if no matches are found.
     if (!allowOverlap) return fullText.match(new RegExp(searchText, 'g')).length;
-    // Conveniently
     if(fullText.length - searchText.length === 1) return fullText.split(new RegExp(searchText)).length;
     // Splits given string into an array by separating the string into substrings.
     return fullText.split(new RegExp(searchText)).length - 1;
