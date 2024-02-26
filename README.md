@@ -8,6 +8,7 @@
 ### Week 2: Deep Dive into **JS**
 ### Week 3: **NodeJS**, Events, FS and the HTTP Modules.
 ### Week 4, 5: **Express.js** Web Framework
+### Week 6: NoSQL databases, **MongoDB**
 ..work in progress
 
 ## Contact
