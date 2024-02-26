@@ -8,6 +8,7 @@ const {
   deleteBookApi,
   addReviewApi,
 } = require("../api/books");
+const { Book } = require("../helpers/bookQuery");
 
 //---Rendering (Front)---//
 // Home
@@ -21,7 +22,6 @@ exports.viewBooks = async (req, res, next) => {
         username: req.user.username,
       });
   } catch (error) {
-    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
     res.status(500).render('../views/no-auth/500.ejs');
   }
 };
@@ -34,8 +34,7 @@ exports.viewBook = async (req, res, next) => {
       username: req.user.username,
     });
   } catch (error) {
-    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
-    res.status(500).render('../views/no-auth/500.ejs');
+    res.status(404).render('../views/no-auth/404.ejs');
   }
 };
 // Editing an existing book
@@ -47,7 +46,6 @@ exports.renderEdit = async (req, res) => {
       username: req.user.username,
     });
   } catch (error) {
-    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
     res.status(500).render('../views/no-auth/500.ejs');
   }
 };
@@ -77,27 +75,31 @@ exports.createBook = async (req, res, next) => {
     }); // TOKEN PAYLOAD
     res.status(302).redirect("/mylist");
   } catch (error) {
-    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
-    res.status(500).render('../views/no-auth/500.ejs');
+    console.log(error);
   }
 };
 // Patching
 exports.editBook = async (req, res, next) => {
   try {
-    const { title, author, publication_year, genre, description } = req.body;
-    await updateBookApi(req.params.id, {
+    const data = ({
       title,
       author,
       publication_year,
       genre,
       description,
-      authorId: req.user.uuid,
-      cover_image: req.file.filename,
-    }); // TOKEN PAYLOAD
+      // cover_image,
+    } = req.body);
+    if (req.file) {
+      data.cover_image = '/cover/' + req.file.filename;
+    } // else {
+      // const cover = await Book.getCover(req.params.id);
+      // data.cover_image = cover.substring(7);
+    // }
+
+    await updateBookApi(req.params.id, data);
     res.redirect("/mylist", 302);
   } catch (error) {
-    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
-    res.status(500).render('../views/no-auth/500.ejs');
+    console.log(error);
   }
 };
 // Deleting
@@ -106,7 +108,6 @@ exports.deleteBook = async (req, res, next) => {
     await deleteBookApi(req.params.id);
     res.redirect("/mylist", 301);
   } catch (error) {
-    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
     res.status(500).render('../views/no-auth/500.ejs');
   }
 };
@@ -118,8 +119,6 @@ exports.addReview = async (req, res, next) => {
     const result = await addReviewApi(req.params.id, { user : req.user.username, comment });
     res.redirect(`/${req.params.id}`, 301);
   } catch (error) {
-    console.log(error);
-    if (error.response.status == 404) return res.status(404).render('../views/no-auth/404.ejs');
     res.status(500).render('../views/no-auth/500.ejs');
   }
 }

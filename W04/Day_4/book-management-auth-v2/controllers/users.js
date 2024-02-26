@@ -10,7 +10,7 @@ exports.renderLogin = (req, res) => {
   try {
     return res.render("../views/no-auth/login.ejs", { error : null});
   } catch (error) {
-    if (error.response.status == 404)
+    if (error.response.status && error.response.status == 404)
       return res.status(404).render("../views/no-auth/404.ejs");
     res.status(500).render("../views/no-auth/500.ejs");
   }
@@ -20,7 +20,7 @@ exports.renderRegister = (req, res) => {
   try {
     return res.render("../views/no-auth/register.ejs");
   } catch (error) {
-    if (error.response.status == 404)
+    if (error.response.status && error.response.status == 404)
       return res.status(404).render("../views/no-auth/404.ejs");
     res.status(500).render("../views/no-auth/500.ejs");
   }
@@ -36,7 +36,7 @@ exports.renderList = async (req, res) => {
       username: req.user.username,
     });
   } catch (error) {
-    if (error.response.status == 404)
+    if (error.response.status && error.response.status == 404)
       return res.status(404).render("../views/no-auth/404.ejs");
     res.status(500).render("../views/no-auth/500.ejs");
   }
@@ -72,7 +72,7 @@ exports.register = async (req, res) => {
     const result = await registerUser(username, email, password);
     res.status(201).redirect("/login");
   } catch (error) {
-    if (error.response.status == 404)
+    if (error.response.status && error.response.status == 404)
       return res.status(404).render("../views/no-auth/404.ejs");
     res.status(500).render("../views/no-auth/500.ejs");
   }

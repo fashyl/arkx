@@ -20,6 +20,13 @@
       "email": "user4@gmail.com",
       "password": "$2b$10$lw.qQ2h0VnZtLNCui4fbMusdHydaziebejIwHbLasb3OkSAvPbzD2",
       "uuid": "4ae41f78-f25f-44c6-b9f2-02c48d55882c"
+    },
+    {
+      "id": "e578",
+      "username": "Zak the legend",
+      "email": "zak@gmail.com",
+      "password": "$2b$10$.Fnlv5.6.KQ5qihW94qkaO9sjHR7vFX1a9.GSk4pGG4wiZhXtR0pm",
+      "uuid": "cab992a1-c972-4150-8ac8-5bc1ff75e506"
     }
   ],
   "books": [
@@ -29,15 +36,13 @@
       "author": "Robert T. Kiyosaki",
       "publication_year": "2017",
       "description": "Robert's story of growing up with two dads, his real father and the father of his best friend, his rich dad.",
-      "genre": [
-        "Business"
-      ],
+      "genre": "Business",
       "authorId": "a6d3e8b3-43b1-4701-a2c4-8c32f4942f8d",
       "cover_image": "/cover/rich-dad-poor-dad-cover.webp",
       "reviews": [
         {
           "user": "shyl",
-          "comment": "Review.\r\n"
+          "comment": "So far I am half way through the book, I didn’t have the best start in life and I wanted to change that outcome for my children and I. I was never educated with money or taught how to be smart with it as my mom wasn’t great with it either, I am smart with my education but not money. I always wanted to be different financially but didn’t know where to start and this book has given me the key. I’m so glad I found this book at 28 instead of 58. I cannot stress enough the importance of getting your children and future generations to read this book as braking that cycle now will pay off later for them. We as parents always want our children to do well and not face the problems we do, start with this book and educate them before they leave home. It will be one of the best things you can do."
         }
       ],
       "rating": {
@@ -52,9 +57,7 @@
       "author": "Paulo Coelho",
       "publication_year": "2013",
       "description": "Every few decades a book is published that changes the lives of its readers forever. This is such a book - a beautiful parable about learning to listen to your heart, read the omens strewn along life's path and, above all, follow your dreams.",
-      "genre": [
-        "Drama, Quest, Adventure fiction"
-      ],
+      "genre": "Drama, Quest, Adventure fiction",
       "cover_image": "/cover/the-alchemist-cover.webp",
       "reviews": [
         {
@@ -66,6 +69,17 @@
         "likes": 0,
         "dislikes": 0
       }
+    },
+    {
+      "id": "ff05",
+      "title": "Mein Kampf (German: “My Struggle”)",
+      "authorId": "cab992a1-c972-4150-8ac8-5bc1ff75e506",
+      "author": "Adolf Hitler",
+      "publication_year": "1925",
+      "description": "a 1925 autobiographical manifesto by Nazi Party leader Adolf Hitler. The work describes the process by which Hitler became antisemitic and outlines his political ideology and future plans for Germany.",
+      "genre": "Autobiography, War",
+      "cover_image": "/cover/mein-kampf-cover.jpg",
+      "reviews": []
     }
   ]
 }

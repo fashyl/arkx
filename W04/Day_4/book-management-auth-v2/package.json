@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "fakeapi": "json-server --watch ./models/database.json --port 5000"
+    "fakeapi": "json-server --watch ./models/database.json --port 5000",
+    "suuu": ""
   },
   "keywords": [],
   "author": "",

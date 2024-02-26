@@ -96,7 +96,7 @@
                     <a href="/<%=book.id%>" class="h2"><h2><%= book.title %></h2></a>
                     <p><strong>Author:</strong> <%= book.author %></p>
                     <p><strong>Publication Year:</strong> <%= book.publication_year %></p>
-                    <p><strong>Genre:</strong> <%= `${ book.genre[0] }`  %></p>
+                    <p><strong>Genre:</strong> <%= book.genre %></p>
                     <p><%= book.description %></p>
                 </div>
             <% }); %>
