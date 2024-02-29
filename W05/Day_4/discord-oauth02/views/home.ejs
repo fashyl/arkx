@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home</title>
+<style>
+  body {
+    background-color: #282828; /* Gruvbox background color */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+  }
+
+  #content {
+    display: flex;
+    flex-direction: row-reverse; /* To have the LinkedIn embed on the right */
+    align-items: center;
+  }
+
+  canvas {
+    border: 2px solid #ebdbb2; /* Gruvbox foreground color */
+    border-radius: 5px;
+  }
+
+  .LI-profile-badge {
+    margin-left: 20px; /* Add some spacing between the canvas and LinkedIn embed */
+  }
+</style>
+</head>
+<body>
+<div id="content">
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+  <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="souhailfaraji" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://ma.linkedin.com/in/souhailfaraji?trk=profile-badge" style="visibility: hidden;">Souhail FARAJI</a></div>
+  <canvas id="gameCanvas" width="800" height="400"></canvas>
+</div>
+
+<script>
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas.getContext('2d');
+
+  const dino = {
+    x: 50,
+    y: canvas.height - 80,
+    width: 50,
+    height: 50,
+    speed: 5,
+    jumping: false,
+    jumpPower: 12,
+    gravity: 0.5,
+    dy: 0
+  };
+
+  function drawDino() {
+    ctx.fillStyle = '#ebdbb2'; /* Gruvbox foreground color */
+    ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
+  }
+
+  function jump() {
+    if (!dino.jumping) {
+      dino.jumping = true;
+      dino.dy = -dino.jumpPower;
+    }
+  }
+
+  function update() {
+    if (dino.jumping) {
+      dino.y += dino.dy;
+      dino.dy += dino.gravity;
+
+      if (dino.y >= canvas.height - dino.height) {
+        dino.y = canvas.height - dino.height;
+        dino.jumping = false;
+      }
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawDino();
+  }
+
+  function gameLoop() {
+    update();
+    draw();
+    requestAnimationFrame(gameLoop);
+  }
+
+  gameLoop();
+
+  document.addEventListener('keydown', (event) => {
+    if (event.code === 'Space') {
+      jump();
+    }
+  });
+</script>
+</body>
+</html>
