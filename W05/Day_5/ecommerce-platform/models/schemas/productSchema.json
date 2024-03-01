@@ -1,0 +1,377 @@
+{
+  "obj": {
+    "title": {
+      "required": true,
+      "trim": true,
+      "maxLength": [200, "Must be less than 200 characters."]
+    },
+    "description": { "required": true, "trim": true, "maxLength": 1000 },
+    "price": { "min": 0, "required": true },
+    "category": [{ "trim": true, "maxLength": 20, "required": true }],
+    "images": [{ "default": "", "required": false }],
+    "stock": { "min": 0 }
+  },
+  "paths": {
+    "title": {
+      "enumValues": [],
+      "regExp": null,
+      "path": "title",
+      "instance": "String",
+      "validators": [
+        { "message": "Path `{PATH}` is required.", "type": "required" },
+        {
+          "message": "Must be less than 200 characters.",
+          "type": "maxlength",
+          "maxlength": 200
+        }
+      ],
+      "getters": [],
+      "setters": [null],
+      "_presplitPath": ["title"],
+      "options": {
+        "required": true,
+        "trim": true,
+        "maxLength": [200, "Must be less than 200 characters."]
+      },
+      "_index": null,
+      "isRequired": true,
+      "originalRequiredValue": true
+    },
+    "description": {
+      "enumValues": [],
+      "regExp": null,
+      "path": "description",
+      "instance": "String",
+      "validators": [
+        { "message": "Path `{PATH}` is required.", "type": "required" },
+        {
+          "message": "Path `{PATH}` (`{VALUE}`) is longer than the maximum allowed length (1000).",
+          "type": "maxlength",
+          "maxlength": 1000
+        }
+      ],
+      "getters": [],
+      "setters": [null],
+      "_presplitPath": ["description"],
+      "options": { "required": true, "trim": true, "maxLength": 1000 },
+      "_index": null,
+      "isRequired": true,
+      "originalRequiredValue": true
+    },
+    "price": {
+      "path": "price",
+      "instance": "Number",
+      "validators": [
+        { "message": "Path `{PATH}` is required.", "type": "required" },
+        {
+          "message": "Path `{PATH}` ({VALUE}) is less than minimum allowed value (0).",
+          "type": "min",
+          "min": 0
+        }
+      ],
+      "getters": [],
+      "setters": [],
+      "_presplitPath": ["price"],
+      "options": { "min": 0, "required": true },
+      "_index": null,
+      "isRequired": true,
+      "originalRequiredValue": true
+    },
+    "category": {
+      "schemaOptions": {
+        "strict": true,
+        "strictQuery": false,
+        "bufferCommands": true,
+        "capped": false,
+        "versionKey": "__v",
+        "optimisticConcurrency": false,
+        "minimize": true,
+        "autoIndex": null,
+        "discriminatorKey": "__t",
+        "shardKey": null,
+        "read": null,
+        "validateBeforeSave": true,
+        "validateModifiedOnly": false,
+        "_id": true,
+        "id": true,
+        "typeKey": "type"
+      },
+      "caster": {
+        "enumValues": [],
+        "regExp": null,
+        "path": "category",
+        "instance": "String",
+        "validators": [
+          { "message": "Path `{PATH}` is required.", "type": "required" },
+          {
+            "message": "Path `{PATH}` (`{VALUE}`) is longer than the maximum allowed length (20).",
+            "type": "maxlength",
+            "maxlength": 20
+          }
+        ],
+        "getters": [],
+        "setters": [null],
+        "_presplitPath": ["category"],
+        "options": { "trim": true, "maxLength": 20, "required": true },
+        "_index": null,
+        "isRequired": true,
+        "originalRequiredValue": true,
+        "_arrayPath": "category.$",
+        "_arrayParentPath": "category"
+      },
+      "$embeddedSchemaType": {
+        "enumValues": [],
+        "regExp": null,
+        "path": "category",
+        "instance": "String",
+        "validators": [
+          { "message": "Path `{PATH}` is required.", "type": "required" },
+          {
+            "message": "Path `{PATH}` (`{VALUE}`) is longer than the maximum allowed length (20).",
+            "type": "maxlength",
+            "maxlength": 20
+          }
+        ],
+        "getters": [],
+        "setters": [null],
+        "_presplitPath": ["category"],
+        "options": { "trim": true, "maxLength": 20, "required": true },
+        "_index": null,
+        "isRequired": true,
+        "originalRequiredValue": true,
+        "_arrayPath": "category.$",
+        "_arrayParentPath": "category"
+      },
+      "$isMongooseArray": true,
+      "path": "category",
+      "instance": "Array",
+      "validators": [],
+      "getters": [],
+      "setters": [],
+      "_presplitPath": ["category"],
+      "options": {
+        "type": [{ "trim": true, "maxLength": 20, "required": true }]
+      },
+      "_index": null
+    },
+    "images": {
+      "schemaOptions": {
+        "strict": true,
+        "strictQuery": false,
+        "bufferCommands": true,
+        "capped": false,
+        "versionKey": "__v",
+        "optimisticConcurrency": false,
+        "minimize": true,
+        "autoIndex": null,
+        "discriminatorKey": "__t",
+        "shardKey": null,
+        "read": null,
+        "validateBeforeSave": true,
+        "validateModifiedOnly": false,
+        "_id": true,
+        "id": true,
+        "typeKey": "type"
+      },
+      "caster": {
+        "enumValues": [],
+        "regExp": null,
+        "path": "images",
+        "instance": "String",
+        "validators": [],
+        "getters": [],
+        "setters": [],
+        "_presplitPath": ["images"],
+        "options": { "default": "", "required": false },
+        "_index": null,
+        "defaultValue": "",
+        "isRequired": false,
+        "_arrayPath": "images.$",
+        "_arrayParentPath": "images"
+      },
+      "$embeddedSchemaType": {
+        "enumValues": [],
+        "regExp": null,
+        "path": "images",
+        "instance": "String",
+        "validators": [],
+        "getters": [],
+        "setters": [],
+        "_presplitPath": ["images"],
+        "options": { "default": "", "required": false },
+        "_index": null,
+        "defaultValue": "",
+        "isRequired": false,
+        "_arrayPath": "images.$",
+        "_arrayParentPath": "images"
+      },
+      "$isMongooseArray": true,
+      "path": "images",
+      "instance": "Array",
+      "validators": [],
+      "getters": [],
+      "setters": [],
+      "_presplitPath": ["images"],
+      "options": { "type": [{ "default": "", "required": false }] },
+      "_index": null
+    },
+    "owner": {
+      "path": "owner",
+      "instance": "ObjectId",
+      "validators": [],
+      "getters": [],
+      "setters": [],
+      "_presplitPath": ["owner"],
+      "options": {},
+      "_index": null
+    },
+    "stock": {
+      "path": "stock",
+      "instance": "Number",
+      "validators": [
+        {
+          "message": "Path `{PATH}` ({VALUE}) is less than minimum allowed value (0).",
+          "type": "min",
+          "min": 0
+        }
+      ],
+      "getters": [],
+      "setters": [],
+      "_presplitPath": ["stock"],
+      "options": { "min": 0 },
+      "_index": null
+    },
+    "_id": {
+      "path": "_id",
+      "instance": "ObjectId",
+      "validators": [],
+      "getters": [],
+      "setters": [null],
+      "_presplitPath": ["_id"],
+      "options": { "auto": true, "type": "ObjectId" },
+      "_index": null
+    },
+    "published": {
+      "path": "published",
+      "instance": "Boolean",
+      "validators": [],
+      "getters": [],
+      "setters": [],
+      "_presplitPath": ["published"],
+      "options": {},
+      "_index": null
+    },
+    "createdAt": {
+      "path": "createdAt",
+      "instance": "Date",
+      "validators": [],
+      "getters": [],
+      "setters": [],
+      "_presplitPath": ["createdAt"],
+      "options": {},
+      "_index": null
+    },
+    "updatedAt": {
+      "path": "updatedAt",
+      "instance": "Date",
+      "validators": [],
+      "getters": [],
+      "setters": [],
+      "_presplitPath": ["updatedAt"],
+      "options": {},
+      "_index": null
+    }
+  },
+  "aliases": {},
+  "subpaths": {
+    "category.$": {
+      "enumValues": [],
+      "regExp": null,
+      "path": "category",
+      "instance": "String",
+      "validators": [
+        { "message": "Path `{PATH}` is required.", "type": "required" },
+        {
+          "message": "Path `{PATH}` (`{VALUE}`) is longer than the maximum allowed length (20).",
+          "type": "maxlength",
+          "maxlength": 20
+        }
+      ],
+      "getters": [],
+      "setters": [null],
+      "_presplitPath": ["category"],
+      "options": { "trim": true, "maxLength": 20, "required": true },
+      "_index": null,
+      "isRequired": true,
+      "originalRequiredValue": true,
+      "_arrayPath": "category.$",
+      "_arrayParentPath": "category"
+    },
+    "images.$": {
+      "enumValues": [],
+      "regExp": null,
+      "path": "images",
+      "instance": "String",
+      "validators": [],
+      "getters": [],
+      "setters": [],
+      "_presplitPath": ["images"],
+      "options": { "default": "", "required": false },
+      "_index": null,
+      "defaultValue": "",
+      "isRequired": false,
+      "_arrayPath": "images.$",
+      "_arrayParentPath": "images"
+    }
+  },
+  "virtuals": {},
+  "singleNestedPaths": {},
+  "nested": {},
+  "inherits": {},
+  "callQueue": [],
+  "_indexes": [],
+  "_searchIndexes": [],
+  "methods": {},
+  "methodOptions": {},
+  "statics": {},
+  "tree": {
+    "title": {
+      "required": true,
+      "trim": true,
+      "maxLength": [200, "Must be less than 200 characters."]
+    },
+    "description": { "required": true, "trim": true, "maxLength": 1000 },
+    "price": { "min": 0, "required": true },
+    "category": [{ "trim": true, "maxLength": 20, "required": true }],
+    "images": [{ "default": "", "required": false }],
+    "stock": { "min": 0 },
+    "_id": { "auto": true, "type": "ObjectId" },
+    "createdAt": {},
+    "updatedAt": {}
+  },
+  "query": {},
+  "childSchemas": [],
+  "plugins": [],
+  "$id": 1,
+  "mapPaths": [],
+  "s": { "hooks": { "_pres": {}, "_posts": {} } },
+  "_userProvidedOptions": {},
+  "options": {
+    "strict": true,
+    "strictQuery": false,
+    "bufferCommands": true,
+    "capped": false,
+    "versionKey": "__v",
+    "optimisticConcurrency": false,
+    "minimize": true,
+    "autoIndex": null,
+    "discriminatorKey": "__t",
+    "shardKey": null,
+    "read": null,
+    "validateBeforeSave": true,
+    "validateModifiedOnly": false,
+    "_id": true,
+    "id": true,
+    "typeKey": "type"
+  }
+}
