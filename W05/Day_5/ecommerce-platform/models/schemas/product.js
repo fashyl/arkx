@@ -19,6 +19,12 @@ const productSchema = new Schema({
     min: 0,
     required: true,
   }, // The price of the product.
+  brand : {
+    type: String,
+    required: true,
+    trim: true,
+    maxLength: 50,
+  },
   category: [
     {
       type: String,
@@ -48,7 +54,6 @@ const productMetadata = new Schema({
 });
 
 productSchema.add(productMetadata); // Modularity 100
-console.log(JSON.stringify(productSchema));
 
 // To use our schema definition, we need to convert our blogSchema into a Model we can work with.
-const Product = mongoose.model("Blog", productSchema);
+exports.Product = mongoose.model("products", productSchema);

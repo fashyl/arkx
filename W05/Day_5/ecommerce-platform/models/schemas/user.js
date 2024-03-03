@@ -262,4 +262,4 @@ const userMetadata = new Schema({
 userSchema.add(userMetadata);
 
 // To use our schema definition, we need to convert our blogSchema into a Model we can work with.
-const User = mongoose.model("Blog", userSchema);
+exports.User = mongoose.model("users", userSchema);
