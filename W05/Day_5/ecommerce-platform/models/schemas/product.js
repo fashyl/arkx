@@ -40,7 +40,9 @@ const productSchema = new Schema({
       required: false,
     },
   ], // An array containing URLs of product images (maximum 4 images).
-  owner: mongoose.Types.ObjectId, // The user UUID of the owner/seller of the product.
+  owner: {
+    type: mongoose.Types.ObjectId,
+   }, // The user UUID of the owner/seller of the product.
   stock: {
     type: Number,
     min: 0,

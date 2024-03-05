@@ -251,8 +251,7 @@ const userSchema = new Schema({
   }, // Additional information about the user such as bio, interests, etc.(optional)
   profile_pic: {
     type: String,
-    default : '', // Wa hii blati
-    required : false, 
+    required : true, 
   }
 });
 

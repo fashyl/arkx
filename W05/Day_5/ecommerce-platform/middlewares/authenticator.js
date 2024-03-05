@@ -15,14 +15,18 @@ exports.checkAuthentication = (req, res, next) => {
 
 exports.isOwner = async (req, res, next) => {
   const productId = req.params.id;
-  const product = await Product.findById({ productId });
+  const product = await Product.findById(productId);
+  // console.log('owner :', product.owner,'userId: ',req.user.userId)
+  // owner : new ObjectId('65e656f5a0a3a6fddf44f415') userId:  65e656f5a0a3a6fddf44f415
   if (!product) return res.status(codes.NOT_FOUND).send("Product not found.");
-  if (product.owner !== req.user.userId) {
-    res
+  // differences in object references. Use this instead
+  else if (!product.owner.equals(req.user.userId)/*product.owner !== req.user.userId*/) {
+    return res
       .status(codes.FORBIDDEN)
       .send("Forbidden. You do not have permission to access this resource.");
+  } else {
+    next(); 
   }
-  next();
 };
 
 // Needed once I start rendering login/register pages
