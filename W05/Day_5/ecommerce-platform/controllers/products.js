@@ -1,10 +1,9 @@
 //
 //   Basic CRUD operations for products.
 //
-
 const { Product } = require("../models/schemas/product");
 const { codes, messages } = require("../config/http");
-
+const { excludeIrrelevantProductFields } = require("../helpers/fields");
 // Get all products.
 exports.readProducts = async (req, res, next) => {
   try {
@@ -34,12 +33,13 @@ exports.readProductById = async (req, res, next) => {
 // Create a new or many new products.
 exports.createProducts = async (req, res, next) => {
   try {
+    const data = excludeIrrelevantProductFields(req);
     // In case of bulkwrite.
-    if (Array.isArray(req.body)) {
-      const newProducts = await Product.insertMany(req.body);
+    if (Array.isArray(data)) {
+      const newProducts = await Product.insertMany(data);
       res.status(codes.CREATED).json(newProducts);
     } else {
-      const newProduct = new Product(req.body);
+      const newProduct = new Product(data);
       await newProduct.save();
       res.status(codes.CREATED).json(newProduct);
     }
