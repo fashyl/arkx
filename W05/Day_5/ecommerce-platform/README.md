@@ -23,7 +23,7 @@ This project aims to build an eCommerce platform using Express.js and MongoDB wi
 This section outlines the folder structure of the project, providing a clear overview of how the project is organized.
 ecommer-platform/
 
-![folder_tree.png](tree.png);
+![folder_tree.png](tree.png)
 
 ## User Endpoints
 ### Authentication
