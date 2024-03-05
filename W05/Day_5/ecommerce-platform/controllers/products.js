@@ -70,7 +70,7 @@ exports.updateProduct = async (req, res, next) => {
     res.status(codes.OK).json(product);
   } catch (error) {
     console.log("Error updating product:", error);
-    if (error.name === "ValidationError" || "CastError") {
+    if (error.name === "ValidationError" || error.name === "CastError") {
       res
         .status(codes.BAD_REQUEST)
         .send("Invalid product data. Please provide all required fields.");

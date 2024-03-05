@@ -27,7 +27,7 @@ const userSchema = new Schema({
     type: Number,
     min: 18,
   }, // The age of the user.
-  Country: {
+  country: {
     type: String,
     trim: true,
     enum: {
@@ -249,11 +249,16 @@ const userSchema = new Schema({
       maxlength: 500,
     },
   }, // Additional information about the user such as bio, interests, etc.(optional)
+  profile_pic: {
+    type: String,
+    default : '', // Wa hii blati
+    required : false, 
+  }
 });
 
 const userMetadata = new Schema({
-  createdAt: { type: Date, default: Date.now }, // The timestamp indicating when the user account was created.
-  updatedAt: { type: Date, default: Date.now }, // The timestamp indicating when the user account was last updated.
+  createdAt: { type: Date, default: Date.now, immuatable: true}, // The timestamp indicating when the user account was created.
+  updatedAt: { type: Date, default: Date.now}, // The timestamp indicating when the user account was last updated.
   // role: , // a user might have roles like "Admin," "Moderator," or "Standard User."
   // permissions: , // Each role would have associated permissions
 });

@@ -6,20 +6,20 @@ const productSchema = new Schema({
     type: String,
     required: true,
     trim: true,
-    maxLength: [200, 'Must be less than 200 characters.']
+    maxLength: [200, "Must be less than 200 characters."],
   }, // The title or name of the product.
   description: {
     type: String,
     required: true,
-    trim : true,
-    maxLength : 1000
+    trim: true,
+    maxLength: 1000,
   }, // A brief description of the product.
   price: {
     type: Number,
     min: 0,
     required: true,
   }, // The price of the product.
-  brand : {
+  brand: {
     type: String,
     required: true,
     trim: true,
@@ -28,7 +28,7 @@ const productSchema = new Schema({
   category: [
     {
       type: String,
-      trim : true,
+      trim: true,
       maxLength: 20,
       required: true,
     },
@@ -36,14 +36,14 @@ const productSchema = new Schema({
   images: [
     {
       type: String,
-      default: '', // hi blati.
+      default: "", // hi blati.
       required: false,
     },
   ], // An array containing URLs of product images (maximum 4 images).
   owner: mongoose.Types.ObjectId, // The user UUID of the owner/seller of the product.
   stock: {
     type: Number,
-    min: 0
+    min: 0,
   }, // The number of items available in stock.
 });
 
