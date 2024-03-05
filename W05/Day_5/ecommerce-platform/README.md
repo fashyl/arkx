@@ -101,30 +101,7 @@ The product entity represents an item available for sale on the eCommerce platfo
 - Utilize helmet middleware to set secure HTTP headers and prevent common web vulnerabilities.
 ## Rate Limiting
 - Implement rate-limiting middleware using express-rate-limit to protect against abusive API requests and potential DoS attacks.
-# Role-Based Access Control (RBAC) and Workflow
-## Overview
-RBAC is a method of restricting system access to authorized users based on their roles within the system. In the context of our eCommerce platform, we can define two primary roles: User and Guest.
-## Roles
-1. **User**: Authenticated users who interact with the platform. They can browse products, make purchases, manage their profiles, and perform other user-specific actions.
-2. **Guest**: Non-authenticated users who can browse products and view product details but cannot perform actions that require authentication, such as making purchases or managing profiles.
-## Workflow for Each Role
-### User
-- **Product Browsing**:
-  - View product listings, categories, and details.
-  - Search, filter, and sort products based on preferences.
-- **Profile Management**:
-  - View and update their own profile information.
-  - Change password and update personal details.
-### Guest
-- **Product Browsing**:
-  - View product listings, categories, and details.
-  - Search, filter, and sort products based on preferences.
-## Workflow Example
-- **Guest Workflow**:
-  1. Guest visits the website and browses product listings.
-  2. Guest views product details and explores different categories.
-This RBAC and workflow description outlines the roles and permissions within the platform and provides a clear understanding of the actions each role can perform.
-## Postman Testing
+## [Postman Testing](https://kerberos-arkx.postman.co/workspace/fashyl's-api-testing~84fc7911-2cb5-490c-8db4-02a5a9713f7f/folder/32845137-eb6e4c02-8ef2-420f-a086-a9860d8edcce?action=share&creator=32845137&ctx=documentation)
 To ensure the functionality and reliability of the backend, candidates are required to structure their Postman setup effectively. Below are the key components that candidates should include in their Postman testing:
 1. **Environment Variables**: Utilize environment variables to store sensitive information such as API keys, tokens, and base URLs. This allows for easy management and switching between different environments (e.g., development, production).
 2. **Collections**: Organize API requests into collections based on functionality or feature sets. Each collection should contain related requests and tests for specific endpoints or scenarios.
