@@ -22,43 +22,9 @@ This project aims to build an eCommerce platform using Express.js and MongoDB wi
 ## Folder Structure
 This section outlines the folder structure of the project, providing a clear overview of how the project is organized.
 ecommer-platform/
-├── config/
-│   ├── config.js ✔️
-│   ├── database.js ✔️
-│   ├── http.js ✔️
-│   └── roles.js 📝
-├── controllers/
-│   ├── products.js ✔️ 
-│   ├── product_stats.js ✔️
-│   ├── product_queries.js ✔️
-│   ├── authentication.js ✔️
-│   └── profile.js ✔️
-├── helpers/
-│   ├── bcrypt.js ✔️
-│   ├── fields.js ✔️
-│   └── jwt.js ✔️
-├── middlewares/
-│   ├── authenticator.js ✔️
-│   ├── multer.js 
-│   ├── nodemailer.js ✔️
-│   ├── helmet.js 📝
-│   ├── pre.js 📝
-│   ├── post.js 📝
-│   └── sanitizer.js 📝
-├── models/
-│   ├── actions 🚜 
-│   └── schemas/ 
-│       ├── product ✔️
-│       └── user ✔️
-├── node_modules
-├── public
-├── routes/
-│   ├── products.js ✔️
-│   └── users.js ✔️
-├── .env ✔️
-├── .gitignore ✔️
-├── README.md ..
-└── server.js ✔️
+
+![folder_tree.png](tree.png);
+
 ## User Endpoints
 ### Authentication
 - `POST /api/auth/register`: Register a new user. Upon successful registration, an email confirmation is sent.
