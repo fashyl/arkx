@@ -1,11 +1,12 @@
 // MongoDB's behavior.
 //
 const mongoose = require("mongoose");
+const { config } = require("./config");
 
 // Connect to MongoDB, Local/Atlas depends on the URI
 exports.run = () => {
   mongoose
-    .connect(process.env.MONGODB_URI)
+    .connect(config.databaseUrl)
     .then(() => {
       console.log("Connected to MongoDB.");
     })
