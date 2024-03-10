@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Hyperlinks</title>
+</head>
+
+<body>
+    <!-- defines a hyperlink,  -->
+    <!-- href attribute indicates the link's destination.-->
+    <!-- target attribute specifies where to open the linked document 
+        or where to submit the form.-->
+    <a href="basics.html" target="_self" title="Default : Same Context">Basics</a>
+    <br>
+    <a href="basics.html" target="_blank" title="New Context">Basics in new tab</a>
+    <br>
+    <a href="basics.html" target="_top" title="Break out of frame">Basics out of frame</a>
+    <!-- if the current page is within a frame or an iframe, clicking a link with target="_top"
+        will cause the linked content to load in the entire browser window,
+        essentially breaking out of any frames or iframes. -->
+    <br>
+    <a href="basics.html" target="_parent" title="Navigate One Level Up">Basics in a parent frame</a>
+    <!-- If the current page is within a nested frame or iframe, clicking a link with target="_parent"
+        will cause the linked content to load in the immediate parent frame,
+        effectively navigating one level up in the frame hierarchy. -->
+    <br>
+    <a href="mailto:adam@gmail.com" target="_self" title="Send email">Email Me</a>
+
+</body>
+
+</html>
