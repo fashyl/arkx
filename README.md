@@ -9,6 +9,8 @@
 ### Week 3: **NodeJS**, Events, FS and the HTTP Modules.
 ### Week 4, 5: **Express.js** Web Framework
 ### Week 6: NoSQL databases, **MongoDB**
+### Week 7: HTML & CSS
+### Week 8: Advanced CSS and Dynamic Web Pages
 ..work in progress
 
 ## Contact
