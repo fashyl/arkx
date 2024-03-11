@@ -1,0 +1,2 @@
+# CSS Reset
+A CSS reset is a stylesheet that aims to normalize or "zero out" the default styles applied to HTML elements by different browsers. This creates a consistent starting point for your own CSS styling, ensuring a more predictable and uniform layout across browsers.
