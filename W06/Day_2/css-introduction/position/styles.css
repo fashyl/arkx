@@ -1,0 +1,60 @@
+img{
+    /* float : places an element on the left or right side of its container, 
+    allowing text and inline elements to wrap around it.*/ 
+    float: right;
+    margin: 1px;
+}
+
+p{
+    /* sets whether an element must be moved below (cleared) 
+    floating elements that precede it. */
+    /* clear: right */
+    clear: left
+    /* clear: both */
+}
+
+#box1{
+    border: 1px solid;
+    height: 300px;
+    width: 300px;
+    background-color: skyblue;
+
+    /* position : sets how an element is positioned in a document. The top, right, bottom, 
+    and left properties determine the final location of positioned elements */
+
+    /* The element is positioned according to the normal flow of the document,
+    and then offset relative to itself */
+    position: relative;
+    top: 50px;
+    left: 250px;
+}
+
+#box2{
+    border: 1px solid;
+    height: 100px;
+    width: 100px;
+    background-color: lightcoral;
+
+    /* The element is removed from the normal document flow */
+    position: absolute;
+    left: 400px;
+}
+
+#box3{
+    border: 1px solid;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(158, 214, 5);
+    position: fixed;
+    left: 100px;
+    top: 100px;
+}
+
+#box4{
+    border: 1px solid;
+    height: 100px;
+    width: 100px;
+    background-color: rgb(158, 0, 5);
+    position: sticky;
+    bottom: 0;
+}

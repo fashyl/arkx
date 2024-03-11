@@ -1,0 +1,52 @@
+#box {
+  width: 250px;
+  height: 250px;
+  background: red;
+  font-size: 225px;
+  text-align: center;
+
+  /* The animation shorthand CSS property applies an animation between styles. 
+It is a shorthand for animation-name, animation-duration, animation-timing-function,
+animation-delay, animation-iteration-count, animation-direction, animation-fill-mode,
+animation-play-state, and animation-timeline. */
+
+    /* animation: mySlide;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-play-state: running; */
+    /* ... */
+
+    animation: 3s linear 0s infinite running mycolorChange;
+}
+
+/* The @keyframes CSS at-rule controls the intermediate steps in a CSS animation sequence
+ by defining styles for keyframes (or waypoints) along the animation sequence. */
+
+@keyframes mySlide {
+    to{margin-left: 100%;}
+}
+
+@keyframes myRotate{
+    100%{transform: rotateX(360deg)};
+    100%{transform: rotateY(360deg)};
+    100%{transform: rotateZ(360deg)};
+}
+
+@keyframes myOpacity{
+    50%{opacity: 0;}
+}
+    
+@keyframes myScale{
+    50%{transform: scale(0.5, 0.5)}
+}
+
+@keyframes mycolorChange {
+    0%{background-color: yellow}
+    20%{background-color: green}
+    40%{background-color: blue}
+    60%{background-color: blueviolet}
+    80%{background-color: red}
+    100%{background-color: orangered}
+}
+
+/* https://youtu.be/HZHHBwzmJLk */

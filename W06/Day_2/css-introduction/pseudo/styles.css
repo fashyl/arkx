@@ -1,0 +1,23 @@
+a:link{
+    color:teal;
+}
+
+a:visited{
+    color:orange;
+}
+
+a:hover{
+    color:black;
+}
+
+button:hover{
+    background-color:yellow;
+}
+
+button:active{
+    background-color:black;
+}
+
+li:nth-child(2n + 1){
+    background-color: yellow;
+}
