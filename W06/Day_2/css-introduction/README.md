@@ -1,0 +1,2 @@
+# CSS Introduction
+Learning CSS (Cascading Style Sheets), a crucial language for styling and formatting web pages. I followed along with a tutorial provided by [BroCode](https://www.youtube.com/channel/UC4SVo0Ue36XCfOyb5Lh1viQ) on YouTube.
