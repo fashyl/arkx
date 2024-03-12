@@ -1,4 +1,5 @@
 # Flexbox Properties
+Following along [Slaying The Dragon](https://www.youtube.com/@slayingthedragon) (a legend.)
 ## Overview
 Flexbox, or Flexible Box, is a CSS layout model designed to provide a more efficient way to arrange, align, and distribute space among items in a container. It simplifies complex layouts and enables responsive design with less code.
 
