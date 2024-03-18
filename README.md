@@ -11,6 +11,7 @@
 ### Week 6: NoSQL databases, **MongoDB**
 ### Week 7: HTML & CSS
 ### Week 8: Advanced CSS and Dynamic Web Pages
+### Week 9: React Part 1
 ..work in progress
 
 ## Contact
