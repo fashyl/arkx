@@ -1,0 +1,32 @@
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header, nav, main, footer {
+    padding: 20px;
+    text-align: center;
+  }
+
+  header, footer {
+    background-color: #333;
+    color: white;
+  }
+
+  nav {
+    background-color: #666;
+    color: white;
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 20px;
+    height: 400px;
+  }
+
+  aside, article {
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
