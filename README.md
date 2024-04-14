@@ -12,6 +12,7 @@
 ### Week 7: HTML & CSS
 ### Week 8: Advanced CSS and Dynamic Web Pages
 ### Week 9: React Part 1
+### Week 10: React Part 2 - Redis
 ..work in progress
 
 ## Contact
