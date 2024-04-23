@@ -1,0 +1,126 @@
+/* App.css */
+.App {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background-color: #282828;
+  color: #ebdbb2;
+  height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #3c3836;
+}
+
+.brand {
+  font-size: 1.5rem;
+}
+
+.buttons button {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #458588;
+  color: #ebdbb2;
+  cursor: pointer;
+}
+
+.phonebook {
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 400px;
+  background-color: #3c3836;
+}
+
+.phonebook h2 {
+  margin-bottom: 1rem;
+}
+
+.phonebook input {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  width: 85%;
+  border: 1px solid #504945;
+  border-radius: 5px;
+  background-color: #282828;
+  color: #ebdbb2;
+}
+
+.phonebook button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #458588;
+  color: #ebdbb2;
+  cursor: pointer;
+}
+
+.contacts {
+  margin-top: 1rem;
+}
+
+.contact {
+  border: 1px solid #504945;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background-color: #3c3836;
+}
+
+.contact .name {
+  font-weight: bold;
+}
+
+.contact .phone {
+  color: #83a598;
+}
+
+.contact .actions {
+  padding: 0.4rem;
+}
+
+.contact .actions button {
+  padding: 0.5rem;
+}
+
+.icon {
+  font-size: 12px;
+}
+
+.loader {
+  height: 5rem;
+  width: 5rem;
+
+  margin: auto;
+
+  animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Home.css */
+.home {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.home h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.home p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
