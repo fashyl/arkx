@@ -36,15 +36,14 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/me", isAuth, (req, res, next) => {
-  logger.log("debug", req.session);
+  if(req.session.views) req.session.views++;
+  else req.session.views = 1;
   res.send(
     '<p>You successfully logged in.</p>'
   );
 });
 
-router.post(
-  "/login",
-  passport.authenticate("local", {
+router.post("/login", passport.authenticate("local", {
     failureRedirect: "/login",
     successRedirect: "/me",
     failureFlash: true,

@@ -13,7 +13,7 @@ const local = new LocalStrategy(async (username, password, done) => {
 
     return done(null, user);
   } catch (err) {
-    done(err);
+    return done(err);
   }
 });
 
