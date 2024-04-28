@@ -10,10 +10,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import axios from "axios";
 
 const schema = z.object({
   // All properties are required by default.
@@ -24,9 +26,12 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 export function LoginForm() {
+  const navigate = useNavigate();
+
   const {
     handleSubmit,
     register,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm<FormFields>({
     resolver: zodResolver(schema),
@@ -34,10 +39,14 @@ export function LoginForm() {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log(data);
-    } catch (error) {
-      console.log(error);
+      const response = await axios.post('http://localhost:3030/api/auth/login', data);
+      console.log(response.data);
+      navigate('/profile');
+    } catch (error: unknown) {
+      console.error(error);
+      setError("password", {
+        message: 'Invalid credentials.'
+      });
     }
   };
 
@@ -81,11 +90,11 @@ export function LoginForm() {
             </div>
             {errors.email && (
                 <div className="text-red-500 text-xs">
-                  "Invalide email or password."
+                  Invalide email or password.
                 </div>
               ) || errors.password && (
                 <div className="text-red-500 text-xs">
-                  "Invalide email or password."
+                  Invalide email or password.
                 </div>
               )}
             <Button disabled={isSubmitting} type="submit" className="w-full">

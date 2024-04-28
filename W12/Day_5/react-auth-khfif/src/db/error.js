@@ -1,7 +1,7 @@
-import { loggerError } from "./config.js";
+import { logger } from "./config.js";
 
 export function handleError(error, response) {
-  loggerError('Error caught by handler: ' + '-' + JSON.stringify(error));
+  logger.log("error", 'Error caught by handler: ', error);
 
   if (!Array.isArray(error)) {
     switch (error.name) {
@@ -42,7 +42,6 @@ export function handleError(error, response) {
           return response.status(400).json({
             type: 'DuplicateKeyError',
             message: 'User already exists.',
-
           });
         }
         // Handle other MongoWriteError cases (e.g., validation errors on the server)

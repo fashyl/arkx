@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios"
 
 // shadcn UI
 import { Button } from "@/components/ui/button";
@@ -42,6 +43,8 @@ export function SvgLoader() {
 }
 
 export function SignupForm() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -53,8 +56,9 @@ export function SignupForm() {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      console.log(data);
+      const response = await axios.post('http://localhost:3030/api/auth/signup', data);
+      console.log(response.data);
+      navigate('/profile')
     } catch (error) {
       setError("root", {
         message: "This email is already taken",

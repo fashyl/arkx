@@ -10,5 +10,6 @@ Learning to implement session based authentication and documenting the process. 
 ## TO-DO
 - [x] Scaffold basic UI (login, register and a profile page.)
 - [x] Build the backend
-- [ ] link front to end.
+- [x] link front to back-end.
+- [ ] Protect routes.
 - [ ] get it working properly.

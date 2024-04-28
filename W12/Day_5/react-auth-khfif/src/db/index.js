@@ -1,24 +1,26 @@
 import express from "express";
 import passport from "passport";
-import session from "./config.js";
+import cors from "cors";
 import { connect } from "mongoose";
 import { UserModel } from "./user.js";
 
-import { local, loggerError, loggerInfo } from "./config.js";
+import requestLogger, { local, userSession , logger } from "./config.js";
 import { handleError } from "./error.js";
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 // Setup: Mongo, express-session and passport (local)
 await connect("mongodb://localhost:27017/auth")
-  .then(() => loggerInfo("Connected to mongo."))
-  .catch((err) => loggerError("Error connecting to mongo:", err));
+  .then(() => logger.log("info", "Connected to mongo."))
+  .catch((error) => logger.log("error", "Error connecting to mongo", error));
 
-app.use(session);
+app.use(userSession);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(requestLogger);
 
 passport.use(local);
 passport.serializeUser((user, done) => {
@@ -66,7 +68,7 @@ app.post(
       if (err) return handleError(err);
       return res
         .status(200)
-        .json(req.session);
+        .json({message: "Succesful login, ", session: req.session});
     });
   }
 );
@@ -74,8 +76,8 @@ app.post(
 app.post("/api/auth/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) return handleError(err, res);
-    return res.redirect("/");
+    return res.status(200).json({message: 'Succesful logout', session: req.session});
   });
 });
 
-app.listen(3030, () => loggerInfo("Server running on 3000.."));
+app.listen(3030, () => logger.log("info", "Server running on 3000.."));

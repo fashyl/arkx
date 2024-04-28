@@ -1,16 +1,10 @@
 import bcrypt from "bcrypt";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import winston from "winston";
 
 import { Strategy } from "passport-local";
-import { createLogger } from "vite";
-
 import { UserModel } from "./user.js";
-
-export const logger = createLogger();
-export const loggerWarn = logger.warn;
-export const loggerInfo = logger.info;
-export const loggerError = logger.error;
 
 export class NotFoundError extends Error {
   constructor(message) {
@@ -40,7 +34,7 @@ export const local = new Strategy(
 );
 
 // Session setup
-export default session({
+export const userSession = session({
   secret: "IDFNS394290I24NOJNDSQ",
   resave: false,
   saveUninitialized: false,
@@ -57,3 +51,44 @@ export default session({
     },
   }),
 });
+
+
+export const logger = winston.createLogger({
+  level: 'info', // Set the default logging level (can be adjusted based on needs)
+  format: winston.format.combine(
+    winston.format.colorize(),
+    winston.format.printf((info) => `[${info.level}] ${info.message}`),
+  ),
+  transports: [
+    new winston.transports.Console(), // Log to console for development
+    // new winston.transports.File({ filename: './app.log' }),
+    // Add other transports for production environments, e.g., file, database
+  ],
+});
+  
+
+const colors = {
+  200: '32',
+  201: '32',
+  204: '32',
+  300: '36',
+  302: '36',
+  400: '35',
+  404: '35',
+  401: '33',
+  403: '33',
+  500: '31',
+};
+
+export default function requestLogger(req, res, next) {
+      const startTime = performance.now(); // Use performance.now() for request duration
+      logger.info(`HTTP${req.httpVersion} ${req.method} ${req.url}`);
+      res.on('finish', () => {
+        const statusCodeColor = colors[res.statusCode] || 'white';
+        const durationInMs = performance.now() - startTime;
+        logger.info(
+          `> \x1b[${statusCodeColor}m${res.statusCode}\x1b[0m ${res.statusMessage} in ${durationInMs.toFixed(2)}ms\n`
+        );
+      });
+      next();
+    }
