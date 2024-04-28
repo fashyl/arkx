@@ -44,6 +44,10 @@ export default session({
   secret: "IDFNS394290I24NOJNDSQ",
   resave: false,
   saveUninitialized: false,
+  cookie: {   
+    httpOnly: true, 
+    maxAge: 1 * 24 * 60 * 60, // a day
+},
   store: new MongoStore({
     mongoUrl: "mongodb://localhost:27017/auth",
     collectionName: "sessions",
