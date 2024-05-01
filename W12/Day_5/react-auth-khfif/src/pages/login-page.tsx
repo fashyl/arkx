@@ -39,11 +39,11 @@ export function LoginForm() {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
-      const response = await axios.post('http://localhost:3030/api/auth/login', data);
-      console.log(response.data);
+      await axios.post('http://localhost:3030/api/auth/login', data, {
+        withCredentials: true,
+      });
       navigate('/profile');
     } catch (error: unknown) {
-      console.error(error);
       setError("password", {
         message: 'Invalid credentials.'
       });

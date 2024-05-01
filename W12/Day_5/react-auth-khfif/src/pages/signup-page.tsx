@@ -56,9 +56,8 @@ export function SignupForm() {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     try {
-      const response = await axios.post('http://localhost:3030/api/auth/signup', data);
-      console.log(response.data);
-      navigate('/profile')
+      await axios.post('http://localhost:3030/api/auth/signup', data);
+      navigate('/login')
     } catch (error) {
       setError("root", {
         message: "This email is already taken",

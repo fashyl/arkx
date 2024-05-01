@@ -40,7 +40,7 @@ export const userSession = session({
   saveUninitialized: false,
   cookie: {   
     httpOnly: true, 
-    maxAge: 1 * 24 * 60 * 60, // a day
+    maxAge: 15 * 24 * 60 * 60,
 },
   store: new MongoStore({
     mongoUrl: "mongodb://localhost:27017/auth",
