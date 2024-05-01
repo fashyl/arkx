@@ -12,4 +12,5 @@ Learning to implement session based authentication and documenting the process. 
 - [x] Build the backend
 - [x] link front to back-end.
 - [x] display the authenticated user's data.
-- [ ] Protect routes.
+- [x] Protect routes.
+- [ ] Use custom hooks or context for cleaner code.

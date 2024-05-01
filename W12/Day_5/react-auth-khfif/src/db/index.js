@@ -81,11 +81,14 @@ app.post(
   }
 );
 
-
-app.post("/api/auth/logout", (req, res) => {
-  req.logout({ keepSessionInfo: false }, (err) => {
-    if (err) return handleError(err, res);
-    return res.status(200).json({ message: "Succesful logout" });
+app.post('/api/auth/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      logger.log("error", "Error loggin the user out: ", err);
+      return res.sendStatus(500);
+    }
+    res.clearCookie('connect.sid');
+    res.sendStatus(200);
   });
 });
 
