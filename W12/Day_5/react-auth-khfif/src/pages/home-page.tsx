@@ -1,6 +1,8 @@
+import { useUser } from '@/lib/hooks';
 import { Link } from 'react-router-dom'
 
 export function HomePage() {
+useUser({ redirectTo: '/profile', redirectIfFound: true});
     return (
       <div className="w-full h-screen bg-white">
         <div className="h-full w-full bg-white text-black flex flex-col items-center justify-center">

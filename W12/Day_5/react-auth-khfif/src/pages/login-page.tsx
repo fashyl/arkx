@@ -16,6 +16,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import axios from "axios";
+import { useUser } from "@/lib/hooks";
 
 const schema = z.object({
   // All properties are required by default.
@@ -26,6 +27,7 @@ const schema = z.object({
 type FormFields = z.infer<typeof schema>;
 
 export function LoginForm() {
+  const { isLoading } =  useUser({ redirectTo: '/profile', redirectIfFound: true});
   const navigate = useNavigate();
 
   const {
@@ -98,7 +100,7 @@ export function LoginForm() {
                 </div>
               )}
             <Button disabled={isSubmitting} type="submit" className="w-full">
-            { isSubmitting ? <div><SvgLoader /></div> : "Login" }
+            { isSubmitting || isLoading ? <div><SvgLoader /></div> : "Login" }
             </Button>
             <Button variant="outline" className="w-full">
              Login with Google

@@ -1,24 +1,13 @@
 import axios from "axios";
 
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
-import useSWR from "swr";
 import { SvgLoader } from "./signup-page";
-
-const fetcher = (url: string) =>
-  axios.get(url, { withCredentials: true }).then((response) => {
-    return { user: response.data || null };
-  });
+import { useUser } from "@/lib/hooks";
+import { mutate } from "swr";
 
 export function Profile() {
-  const { data, isLoading, isValidating, mutate, error } = useSWR(
-    "http://localhost:3030/api/user",
-    fetcher, {
-      revalidateIfStale: false,
-    }
-    );
+  const { user, isLoading, isValidating } = useUser({ redirectTo: '/'});
 
-  const navigate = useNavigate();
   async function logout() {
     await axios
       .post("http://localhost:3030/api/auth/logout", "LOGOUT", {
@@ -26,14 +15,9 @@ export function Profile() {
       })
       .then((response) => console.log(response))
       .catch((err) => console.log(err));
-      mutate(data);
-    navigate("/");
-  }
-
-  if (isLoading || isValidating) {
-    return (<div className='h-full w-full bg-white text-black flex flex-col items-center justify-center'>
-      <SvgLoader />;
-      </div>)
+      await mutate(user);
+      window.location.reload();
+    // navigate("/");
   }
 
   return (
@@ -52,13 +36,13 @@ export function Profile() {
             here
           </Button>
         </p>
-        {isLoading || isValidating || error ? (
+        {isLoading || isValidating ? (
           <SvgLoader />
         ) : (
-          data && (
+          user && (
             <>
               <p className="text-left">Your session:</p>
-              <pre>{JSON.stringify(data, null, 2)}</pre>
+              <pre>{JSON.stringify(user.data, null, 2)}</pre>
             </>
           )
         )}
