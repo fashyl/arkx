@@ -14,34 +14,40 @@
  */
 
 // the length of a_list can vary betweem 2 and 20
-function penalty(arr) {
-  for(let w= 0; w < arr.length; w++) {
-    for (let i = 0; i < arr.length - 1; i++) {
-      if (arr[i][0] !== arr[i + 1][0]) {
-        if (arr[i][0] > arr[i+1][0]) {
-          swap(arr, i, i + 1);
-        }
-      } else {
-        if (`${arr[i]}${arr[i+1]}` > `${arr[i + 1]}${arr[i]}`) {
-          swap(arr, i, i + 1);
-        }
-      }
-    }
-  }
-  return arr.join('');
-}
+// function penalty(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length - 1; j++) {
+//       if (arr[j][0] !== arr[j + 1][0]) {
+//         if (arr[j][0] > arr[j + 1][0]) {
+//           swap(arr, j, j + 1);
+//         }
+//       } else {
+//         if (arr[j] + arr[j + 1] > arr[j + 1] + arr[j]) {
+//           swap(arr, j, j + 1);
+//         }
+//       }
+//     }
+//   }
+//   return arr.join("");
+// }
 
-function swap(arr, i, j) {
-  let temp = arr[i];
-  arr[i] = arr[j];
-  arr[j] = temp;
-  return arr;
+// function swap(arr, i, j) {
+//   let temp = arr[i];
+//   arr[i] = arr[j];
+//   arr[j] = temp;
+//   return arr;
+// }
+
+// ,-, problem is, 
+// I did reach that conclusion, (line 25)
+function penalty(a_list) {
+  return a_list.sort((a, b) => a + b > b + a ? 1 : -1).join('');
 }
 
 // console.log(heap(["A", "B", "C"], 3)); // === '1304550');
 // console.log(heap(["A", "B", "C", "D"], 4)); // === '1304550');
-console.log(penalty(["100", "10", "1"])) // === "100101");
-console.log(penalty(["32", "3"])) // === "323");
-console.log(penalty(["70", "46", "4", "19"])) // === "1944670");
-console.log(penalty(["71", "82", "42", "34", "90"])) // === "3442718290");
-console.log(penalty(["31", "97", "6", "78"])) // === "3167897");
+console.log(penalty(["100", "10", "1"])); // === "100101");
+console.log(penalty(["32", "3"])); // === "323");
+console.log(penalty(["70", "46", "4", "19"])); // === "1944670");
+console.log(penalty(["71", "82", "42", "34", "90"])); // === "3442718290");
+console.log(penalty(["31", "97", "6", "78"])); // === "3167897");
