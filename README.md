@@ -1,5 +1,5 @@
 ## 📖 Overview
-- **Bootcamp Duration:** 4 Months
+- **Bootcamp Duration:** 5 Months
 - **Focus Area:** Full Stack Development (MERN stack - MongoDB, Express.js, React, Node.js)
 
 ## 🚀 Progress
