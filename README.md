@@ -18,6 +18,7 @@
 
 ## Documentation
 Obisidian notes, coming soon...
+Edit: sharing was forbidden for confidentiality reasons...
 
 ## Contact
 You can find me on [Discord](https://discord.gg/CFaj6aXYcQ)
